@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    color: #1e90ff;
+    text-decoration: none;
+}
+
+.lang-switch {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: #fff;
+    }
+
+    a {
+        color: #bb86fc;
+    }
+}

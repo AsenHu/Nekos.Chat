@@ -1,0 +1,8 @@
+{
+    "m.homeserver": {
+        "base_url": "https://matrix-client.nekos.chat"
+    },
+    "org.matrix.msc3575.proxy": {
+        "url": "https://slidingsync.nekos.chat"
+    }
+}
