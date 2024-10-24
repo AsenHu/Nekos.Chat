@@ -39,7 +39,7 @@ export default {
         if (path === '/.well-known/matrix/client') {
             r = {
                 "m.homeserver": {
-                    "base_url": `${country}-matrix-client.nekos.chat`
+                    "base_url": `https://${country}-matrix-client.nekos.chat`
                 },
                 "org.matrix.msc3575.proxy": {
                     "url": `https://${country}-slidingsync.nekos.chat`
