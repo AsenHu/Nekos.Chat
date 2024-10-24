@@ -4,6 +4,12 @@ main = "src/index.ts"
 compatibility_date = "2024-10-22"
 compatibility_flags = ["nodejs_compat"]
 
+workers_dev = false
+routes = [
+    "https://nekos.chat/.well-known/matrix/client",
+    "https://nekos.chat/.well-known/matrix/server"
+]
+
 # Workers Logs
 # Docs: https://developers.cloudflare.com/workers/observability/logs/workers-logs/
 # Configuration: https://developers.cloudflare.com/workers/observability/logs/workers-logs/#enable-workers-logs
