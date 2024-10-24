@@ -32,17 +32,17 @@ export default {
 
         if (path === '/.well-known/matrix/server') {
             r = {
-                "m.server": `${country}.matrix-federation.nekos.chat:443`
+                "m.server": `${country}-matrix-federation.nekos.chat:443`
             } as Server;
         }
 
         if (path === '/.well-known/matrix/client') {
             r = {
                 "m.homeserver": {
-                    "base_url": `${country}.matrix-client.nekos.chat`
+                    "base_url": `${country}-matrix-client.nekos.chat`
                 },
                 "org.matrix.msc3575.proxy": {
-                    "url": `https://${country}.slidingsync.nekos.chat`
+                    "url": `https://${country}-slidingsync.nekos.chat`
                 }
             } as Client;
         }
