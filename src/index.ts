@@ -49,6 +49,7 @@ export default {
 
         return new Response(JSON.stringify(r), {
             headers: {
+                'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json'
             }
         });
