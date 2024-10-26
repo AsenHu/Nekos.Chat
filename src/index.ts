@@ -27,22 +27,35 @@ interface Server {
 export default {
     async fetch(request: Request): Promise<Response> {
         const path: string = new URL(request.url).pathname;
-        const country = request.headers.get('cf-ipcountry')?.toLowerCase() ?? 'default';
+
+        const continent = request.headers.get('continent')?.toLowerCase() ?? 'default';
+        let tag: string;
+        if (continent === 'as') {
+            const country = request.headers.get('country')?.toLowerCase() ?? 'default';
+            if (country === 'cn') {
+                tag = 'cn';
+            } else {
+                tag = continent;
+            }
+        } else {
+            tag = continent;
+        }
+
         let r: Server | Client | undefined;
 
         if (path === '/.well-known/matrix/server') {
             r = {
-                "m.server": `${country}-matrix-federation.nekos.chat:443`
+                "m.server": `${tag}-matrix-federation.nekos.chat:443`
             } as Server;
         }
 
         if (path === '/.well-known/matrix/client') {
             r = {
                 "m.homeserver": {
-                    "base_url": `https://${country}-matrix-client.nekos.chat`
+                    "base_url": `https://${tag}-matrix-client.nekos.chat`
                 },
                 "org.matrix.msc3575.proxy": {
-                    "url": `https://${country}-slidingsync.nekos.chat`
+                    "url": `https://${tag}-slidingsync.nekos.chat`
                 }
             } as Client;
         }
