@@ -28,17 +28,17 @@ export default {
     async fetch(request: Request): Promise<Response> {
         const path: string = new URL(request.url).pathname;
 
-        const continent = request.headers.get('continent')?.toLowerCase() ?? 'default';
+        const continent: string = (request.cf?.continent as string) || 'default';
         let tag: string;
-        if (continent === 'as') {
-            const country = request.headers.get('country')?.toLowerCase() ?? 'default';
-            if (country === 'cn') {
+        if (continent === 'AS') {
+            const country = request.cf?.country || 'default';
+            if (country === 'CN') {
                 tag = 'cn';
             } else {
-                tag = continent;
+                tag = continent.toLowerCase();
             }
         } else {
-            tag = continent;
+            tag = continent.toLowerCase();
         }
 
         let r: Server | Client | undefined;
