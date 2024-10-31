@@ -7,11 +7,11 @@ interface Client {
     };
 }
 
-export const onRequestGet: PagesFunction = async ({ request }) => {
-    const continent: string = (request.cf.continent as string) || 'default';
+export const onRequestGet: PagesFunction = async (context: { request: Request }) => {
+    const continent: string = (context.request.cf.continent as string) || 'default';
     let tag: string;
     if (continent === 'AS') {
-        const country = request.cf.country || 'default';
+        const country = context.request.cf.country || 'default';
         if (country === 'CN') {
             tag = 'cn';
         } else {
